@@ -1,0 +1,17 @@
+name: Github Actions
+
+on: push
+
+jobs:
+  work:
+    name: Work It
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set env
+        run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
+      - name: Test
+        run: echo $GITHUB_SHA
