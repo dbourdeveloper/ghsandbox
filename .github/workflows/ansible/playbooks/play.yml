@@ -1,0 +1,6 @@
+- hosts: onsite
+  vars:
+    commit: "0.0.0.0"
+  tasks:
+    - debug:
+        msg: "TIME: {{ commit }}"
