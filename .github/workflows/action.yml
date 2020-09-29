@@ -15,7 +15,7 @@ jobs:
         run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
 
       - name: Test
-        run: echo $GITHUB_SHA
+        run: echo $GITHUB_SHA_SHORT
 
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
@@ -23,7 +23,6 @@ jobs:
           playbook: play.yml
           directory: ansible/playbooks
           options: |
-            --extra-vars commit=$GITHUB_SHA
+            --extra-vars commit=$GITHUB_SHA_SHORT
             --inventory ../inventories
-        env:
-          GITHUB_SHA: $GITHUB_SHA
+  
