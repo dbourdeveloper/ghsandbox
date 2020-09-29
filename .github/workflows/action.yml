@@ -24,4 +24,4 @@ jobs:
           directory: ansible/playbooks
           options: |
             --extra-vars commit=1.1.1.1
-            --inventory ./ansible/inventories
+            --inventory ./ansible/inventories/hosts
