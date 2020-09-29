@@ -23,5 +23,5 @@ jobs:
           playbook: play.yml
           directory: ansible/playbooks
           options: |
-            --extra-vars commit="$GITHUB_SHA"
+            --extra-vars commit="${GITHUB_SHA}"
             --inventory ../inventories
