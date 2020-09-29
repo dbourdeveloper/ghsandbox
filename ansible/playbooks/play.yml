@@ -1,4 +1,4 @@
-- hosts: onsite
+- hosts: all
   vars:
     commit: "0.0.0.0"
   tasks:
