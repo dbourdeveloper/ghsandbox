@@ -15,6 +15,11 @@ jobs:
       
       - name: Set env
         run: echo ::set-output name=test::$(echo $GITHUB_SHA | cut -c 1-6)
+  
+  cooldown:
+    name: Cool Down
+    runs-on: ubuntu-latest
+    steps:
 
       - name: Test
         run: echo ${{ needs.job1.outputs.output1 }}
