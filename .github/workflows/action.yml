@@ -6,16 +6,18 @@ jobs:
   work:
     name: Work It
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       
       - name: Set env
-        run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
+        run: echo ::set-output name=test::$(echo $GITHUB_SHA | cut -c 1-6)
 
       - name: Test
-        run: echo $GITHUB_SHA_SHORT
+        run: echo ${{ needs.job1.outputs.output1 }}
 
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
