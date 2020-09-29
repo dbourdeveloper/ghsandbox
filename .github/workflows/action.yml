@@ -21,7 +21,7 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: play.yml
-          directory: ./ansible/playbooks
+          directory: ansible/playbooks
           options: |
             --extra-vars commit=1.1.1.1
             --inventory ./ansible/inventories
