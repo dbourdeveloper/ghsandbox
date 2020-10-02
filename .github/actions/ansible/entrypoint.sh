@@ -6,4 +6,4 @@ echo "$ANSIBLE_PRIVATE_SSH_KEY" > ~/.ssh/id_rsa
 chmod 0600 ~/.ssh/id_rsa
 
 # ansible-playbook -i deployment/ansible/hosts --extra-vars "webservers=$DEPLOY_ENV docker_image_hash=$DOCKER_IMG_HASH git_timestamp=$GIT_COMMIT_TIMESTAMP" deployment/ansible/playbooks/deploy.yml --vault-password-file ~/.vault_pass.txt
-ansible-playbook -i deployment/ansible/hosts deployment/ansible/playbooks/deploy.yml
+ansible-playbook -i ansible/hosts ansible/playbooks/deploy.yml
