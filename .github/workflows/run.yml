@@ -28,11 +28,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-          playbook: play.yml
-          directory: ansible/playbooks
-          options: |
-            --extra-vars commit=${{ needs.work.outputs.output1 }}
-            --inventory ../inventories
+        uses: ./.github/actions/ansible
+
   
