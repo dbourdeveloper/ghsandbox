@@ -1,8 +1,10 @@
 - hosts: all
+  vars:
+    server: "undefined"
   tasks:
     - name: "Run python script"
       script: actions.py
       register: outcome
 
     - debug:
-        msg: "Outcome: {{ outcome.stdout }}"
+        msg: "Outcome: {{ outcome.stdout }}, server: {{ server }}"
