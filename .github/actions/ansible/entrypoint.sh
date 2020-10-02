@@ -7,5 +7,4 @@ chmod 0600 ~/.ssh/id_rsa
 
 export ANSIBLE_CONFIG="ansible/ansible.cfg"
 # ansible-playbook -i deployment/ansible/hosts --extra-vars "webservers=$DEPLOY_ENV docker_image_hash=$DOCKER_IMG_HASH git_timestamp=$GIT_COMMIT_TIMESTAMP" deployment/ansible/playbooks/deploy.yml --vault-password-file ~/.vault_pass.txt
-ansible all -i ansible/inventory -m setup | grep ansible_python_version
-ansible-playbook ansible/playbooks/play.yml
+ansible-playbook -i ansible/inventories/hosts ansible/playbooks/play.yml
