@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM alpine
 
 ENV ANSIBLE_HOST_KEY_CHECKING=False
 
