@@ -1,6 +1,8 @@
 - hosts: all
-  vars:
-    commit: "0.0.0.0"
   tasks:
+    - name: "Run python script"
+      script: actions.py
+      register: outcome
+
     - debug:
-        msg: "TIME: {{ commit }}"
+        msg: "Outcome: {{ outcome.stdout }}"
