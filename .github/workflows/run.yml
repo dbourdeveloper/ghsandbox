@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/ansible
         with:
           workspace_dir: 'ansible'
-          playbook: 'playbooks/run.yml'
+          playbook: 'ansible/playbooks/run.yml'
           inventory_dir: 'inventories/hosts'
 
 
