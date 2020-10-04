@@ -2,6 +2,14 @@
   vars:
     server: "undefined"
   tasks:
+    - name: "Install Python 3 Pip"
+      delegate_to: 127.0.0.1
+      connection: local
+      apt:
+        name: python3-pip
+        state: present
+        update_cache: yes
+
     - name: "Pip install dependencies"
       delegate_to: 127.0.0.1
       connection: local
