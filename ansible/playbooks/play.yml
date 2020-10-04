@@ -2,6 +2,12 @@
   vars:
     server: "undefined"
   tasks:
+    - name: "Pip install dependencies"
+      delegate_to: 127.0.0.1
+      connection: local
+      pip:
+        name: fuzzywuzzy
+
     - name: "Run python script"
       script: actions.py
       register: outcome

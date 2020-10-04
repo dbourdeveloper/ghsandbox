@@ -30,15 +30,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
+      # - name: Set up Python
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: '3.8'
         
-      - name: Install python dependencies
-        run: |
-          sudo python -m pip install --upgrade pip
-          sudo -H pip install fuzzywuzzy
+      # - name: Install python dependencies
+      #   run: |
+      #     sudo python -m pip install --upgrade pip
+      #     sudo -H pip install fuzzywuzzy
 
       - name: Run playbook
         uses: ./.github/actions/ansible
