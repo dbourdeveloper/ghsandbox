@@ -49,5 +49,7 @@ then
 fi
 
 cd ${WORKSPACE_DIR}
+echo "WORKSPACE"
+ls -l
 echo ansible-playbook ${PLAYBOOK_DIR} ${INVENTORY} ${SSH_KEY} ${VAULT_PASSWORD} ${OPTIONS}
 ansible-playbook ${PLAYBOOK_DIR} ${INVENTORY} ${SSH_KEY} ${VAULT_PASSWORD} ${OPTIONS}
