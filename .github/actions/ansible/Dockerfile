@@ -1,4 +1,6 @@
-FROM willhallonline/ansible:latest
+FROM alpine:latest
+
+RUN apk add ansible python3-dev gcc
 
 LABEL mainter="David Bour <dbour.developer@gmail.com>"
 
