@@ -7,4 +7,4 @@
       register: outcome
 
     - debug:
-        msg: "Outcome: {{ outcome.stdout }}, server: {{ server }}"
+        msg: "Outcome: {{ outcome.stdout }}"

@@ -1,9 +1,8 @@
-FROM alpine
+FROM willhallonline/ansible:latest
 
-ENV ANSIBLE_HOST_KEY_CHECKING=False
+LABEL mainter="David Bour <dbour.developer@gmail.com>"
 
-RUN apk add gcc ansible python3 python3-dev py3-pip libc-dev libffi-dev openssl-dev musl-dev postgresql-dev
-RUN pip3 install sqlalchemy google-cloud-storage psycopg2-binary fuzzywuzzy
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh ./entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT ["/entrypoint.sh"]

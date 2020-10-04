@@ -1,10 +1,53 @@
 #!/bin/sh
 
-echo "$ANSIBLE_VAULT" > ~/.vault_pass.txt
-mkdir ~/.ssh
-echo "$ANSIBLE_PRIVATE_SSH_KEY" > ~/.ssh/id_rsa
-chmod 0600 ~/.ssh/id_rsa
+set -e
 
-export ANSIBLE_CONFIG="ansible/ansible.cfg"
-# ansible-playbook -i deployment/ansible/hosts --extra-vars "webservers=$DEPLOY_ENV docker_image_hash=$DOCKER_IMG_HASH git_timestamp=$GIT_COMMIT_TIMESTAMP" deployment/ansible/playbooks/deploy.yml --vault-password-file ~/.vault_pass.txt
-ansible-playbook -i ansible/inventories/hosts --extra-vars "server=$SERVER" ansible/playbooks/play.yml
+export WORKSPACE_DIR=
+if [ ! -z "$INPUT_WORKSPACE_DIR" ]
+then
+    WORKSPACE_DIR="${INPUT_WORKSPACE_DIR}"
+else
+    echo "No working space directory specified"
+fi
+
+export PLAYBOOK_DIR=
+if [ ! -z "$INPUT_PLAYBOOK" ]
+then
+    PLAYBOOK_DIR="${INPUT_PLAYBOOK}"
+else
+    echo "No playbook specified"
+fi
+
+export INVENTORY=
+if [ ! -z "$INPUT_INVENTORY_DIR" ]
+then
+    INVENTORY="-i ${INPUT_INVENTORY_DIR}"
+else
+    echo "No inventory specified"
+fi
+
+export SSH_KEY=
+if [ ! -z "$INPUT_SSH_KEY" ]
+then
+    SSH_KEY="--key-file ${INPUT_SSH_KEY}"
+else
+    echo "No SSH key specified"
+fi
+
+export VAULT_PASSWORD=
+if [ ! -z "$INPUT_VAULT_PASSWORD" ]
+then
+    VAULT_PASSWORD="--vault-password ${INPUT_VAULT_PASSWORD}"
+else
+    echo "No vault password specified"
+fi
+
+export OPTIONS=
+if [ ! -z "$INPUT_OPTIONS" ]
+then
+    OPTIONS=$(echo "${INPUT_OPTIONS}" | tr "\n" " ")
+fi
+
+cd ${WORKSPACE_DIR}
+echo ansible-playbook ${PLAYBOOK_DIR} ${INVENTORY} ${SSH_KEY} ${VAULT_PASSWORD} ${OPTIONS}
+ansible-playbook ${PLAYBOOK_DIR} ${INVENTORY} ${SSH_KEY} ${VAULT_PASSWORD} ${OPTIONS}

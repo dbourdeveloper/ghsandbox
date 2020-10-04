@@ -29,7 +29,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Run playbook
         uses: ./.github/actions/ansible
-        env:
-          SERVER: staging
+        with:
+          workspace_dir: 'ansible'
+          playbook: 'run.yml'
+          inventory_dir: 'ansible/inventories/hosts'
+
 
   

@@ -1,5 +1,33 @@
-name: "Ansible"
-description: "Run Ansible"
+name: 'Ansible Runner'
+author: 'David Bour'
+description: 'Runs Ansible Playbooks using GitHub Actions'
+inputs:
+  workspace_dir:
+    description: 'Root directory of the Ansible workspace'
+    required: true
+  playbook:
+    description: 'Filename of the playbook in the set workspace'
+    required: true
+  inventory_dir:
+    description: 'Path to the inventory file'
+    required: false
+  ssh_key:
+    description: 'SSH Key for remote Ansible connections'
+    required: false
+  vault_password:
+    description: 'Password used for Ansible vault encrypted files'
+    required: false
+  options:
+    description: 'Additional options for Ansible playbook'
+    required: false
+
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workspace_dir }}
+    - ${{ inputs.playbook }}
+    - ${{ inputs.inventory_dir }}
+    - ${{ inputs.ssh_key }}
+    - ${{ inputs.vault_password }}
+    - ${{ inputs.options }}
