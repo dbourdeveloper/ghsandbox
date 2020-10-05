@@ -16,7 +16,8 @@
       connection: local
       become: yes
       package:
-        name: "{{ python3pip }}"
+        name:
+          - "{{ python3pip }}"
         state: present
 
     - name: "Pip install dependencies"
@@ -24,7 +25,12 @@
       connection: local
       become: yes
       pip:
-        name: fuzzywuzzy
+        name:
+          - fuzzywuzzy
+          - boto
+          - sqlalchemy
+          - google-cloud-storage
+          - psycopg2-binary
 
     - name: "Run python script"
       script: actions.py
