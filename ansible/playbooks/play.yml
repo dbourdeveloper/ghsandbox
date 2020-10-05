@@ -1,4 +1,6 @@
 - hosts: all
+  vars:
+    username: "not specified"
   tasks:
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
@@ -22,3 +24,6 @@
 
     - debug:
         msg: "Outcome: {{ outcome.stdout }}"
+
+    - debug:
+        msg: "My name is: {{ username }} "
