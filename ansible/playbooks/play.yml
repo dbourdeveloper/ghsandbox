@@ -1,6 +1,8 @@
 - hosts: all
   roles:
     - shout
+  vars:
+    secret_pw: "undefined"
   tasks:
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
@@ -26,4 +28,4 @@
         msg: "Outcome: {{ outcome.stdout }}"
 
     - debug:
-        msg: "My name is: {{ SECRET_USERNAME }} "
+        msg: "My secret is: {{ secret_pw }} "
