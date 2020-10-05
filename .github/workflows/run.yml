@@ -38,7 +38,7 @@ jobs:
           inventory_dir: 'inventories/hosts'
           vault_password: 'password'
           options: |
-            --extra-vars "username=david secret_pw=lmao"
+            --extra-vars username=david --extra-vars secret_pw=lmao
             --verbose
 
 
