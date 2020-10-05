@@ -28,8 +28,8 @@
           - fuzzywuzzy
           - boto
           - sqlalchemy
-          - google-cloud-storage
-          - psycopg2
+          # - google-cloud-storage
+          # - psycopg2
 
     - name: "Run python script"
       script: actions.py
