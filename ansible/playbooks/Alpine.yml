@@ -2,6 +2,7 @@ dependencies:
   - py3-pip
   - postgresql-dev
   - musl-dev
-  - build-base
   - gcc
   - libffi
+  - libffi-dev
+  - python-dev
