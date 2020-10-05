@@ -2,3 +2,4 @@ dependencies:
   - py3-pip
   - postgresql-dev
   - musl-dev
+  - build-base
