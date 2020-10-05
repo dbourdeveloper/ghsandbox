@@ -37,7 +37,10 @@ fi
 export VAULT_PASSWORD=
 if [ ! -z "$INPUT_VAULT_PASSWORD" ]
 then
-    VAULT_PASSWORD="--vault-password ${INPUT_VAULT_PASSWORD}"
+    echo "$INPUT_VAULT_PASSWORD" > ~/.vault_secrets_pw
+    tilde=~
+    VAULT_PASSWORD_PATH="${tilde}/.vault_secrets_pw"
+    VAULT_PASSWORD="--vault-password-file ${VAULT_PASSWORD_PATH}"
 else
     echo "No vault password specified"
 fi

@@ -1,6 +1,4 @@
 - hosts: all
-  vars:
-    username: "not specified"
   roles:
     - shout
   tasks:
@@ -28,4 +26,4 @@
         msg: "Outcome: {{ outcome.stdout }}"
 
     - debug:
-        msg: "My name is: {{ username }} "
+        msg: "My name is: {{ secret_username }} "
