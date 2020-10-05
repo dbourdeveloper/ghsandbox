@@ -4,3 +4,4 @@ dependencies:
   - musl-dev
   - build-base
   - gcc
+  - libffi
