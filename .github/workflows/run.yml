@@ -36,7 +36,7 @@ jobs:
           workspace_dir: 'ansible'
           playbook: 'playbooks/play.yml'
           inventory_dir: 'inventories/hosts'
-          options: '--extra-vars name="david"'
+          options: '--extra-vars username="david"'
 
 
   
