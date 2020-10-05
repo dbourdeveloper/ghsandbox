@@ -29,7 +29,7 @@
           - boto
           - sqlalchemy
           - google-cloud-storage
-          - psycopg2-binary
+          - psycopg2
 
     - name: "Run python script"
       script: actions.py
