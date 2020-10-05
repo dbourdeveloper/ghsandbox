@@ -26,4 +26,4 @@
         msg: "Outcome: {{ outcome.stdout }}"
 
     - debug:
-        msg: "My name is: {{ secret_username }} "
+        msg: "My name is: {{ SECRET_USERNAME }} "
