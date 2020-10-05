@@ -1,2 +1,2 @@
 python3pip: "py3-pip"
-postgres: "postgresql-dev"
+postgres: "postgresql"
