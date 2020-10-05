@@ -18,7 +18,8 @@
       package:
         name:
           - "{{ python3pip }}"
-        state: present
+          - "{{ postgres }}"
+
 
     - name: "Pip install dependencies"
       delegate_to: 127.0.0.1
