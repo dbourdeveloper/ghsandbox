@@ -16,10 +16,8 @@
       connection: local
       become: yes
       package:
-        name:
-          - "{{ python3pip }}"
-          - "{{ postgres }}"
-
+        name: "{{ item }}"
+      with_items: "{{ dependencies }}"
 
     - name: "Pip install dependencies"
       delegate_to: 127.0.0.1

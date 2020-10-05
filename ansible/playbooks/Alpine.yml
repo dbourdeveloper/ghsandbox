@@ -1,2 +1,4 @@
-python3pip: "py3-pip"
-postgres: "postgresql"
+dependencies:
+  - py3-pip
+  - postgresql-dev
+  - musl-dev
