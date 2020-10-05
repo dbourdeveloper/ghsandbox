@@ -4,6 +4,10 @@
   vars:
     secret_pw: "undefined"
   tasks:
+    - name: "Operating System Used"
+      debug:
+        msg: "You are using {{ ansible_facts['distribution'] }}"
+
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
       connection: local
