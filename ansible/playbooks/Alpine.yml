@@ -3,3 +3,4 @@ dependencies:
   - postgresql-dev
   - musl-dev
   - build-base
+  - gcc
