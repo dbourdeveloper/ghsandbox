@@ -9,6 +9,7 @@
         msg: "You are using {{ ansible_facts['distribution'] }}"
 
     - include_vars: "{{ ansible_facts['distribution'] }}.yml"
+    - include_vars: "Orange.yml"
 
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
@@ -34,3 +35,6 @@
 
     - debug:
         msg: "My secret is: {{ secret_pw }} "
+
+    - debug:
+        msg: "I love {{ animal }}"
