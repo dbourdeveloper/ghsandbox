@@ -9,7 +9,7 @@
         msg: "You are using {{ ansible_facts['distribution'] }}"
 
     - name: "Load vars depending on OS"
-      include_vars: "./{{ ansible_facts['distribution'] }}.yml"
+      include_vars: "{{ ansible_facts['distribution'] }}.yml"
 
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
