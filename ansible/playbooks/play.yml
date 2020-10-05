@@ -9,13 +9,12 @@
         msg: "You are using {{ ansible_facts['distribution'] }}"
 
     - name: "Install Python 3 Pip"
+      include_vars: "{{ ansible_facts['distribution'] }}.yml"
       delegate_to: 127.0.0.1
       connection: local
       become: yes
-      apk:
-        name: py3-pip
-        update_cache: yes
-        state: present
+      package:
+        - "{{ python3pip }}"
 
     - name: "Pip install dependencies"
       delegate_to: 127.0.0.1
