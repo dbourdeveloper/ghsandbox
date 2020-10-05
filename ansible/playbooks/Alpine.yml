@@ -1,4 +1,4 @@
 dependencies:
   - py3-pip
   - postgresql-dev
-  - libffi
+  - libffi-devel
