@@ -25,10 +25,10 @@
       become: yes
       pip:
         name:
-          - fuzzywuzzy
-          - boto
-          - sqlalchemy
-          # - google-cloud-storage
+          # - fuzzywuzzy
+          # - boto
+          # - sqlalchemy
+          - google-cloud-storage
           # - psycopg2
 
     - name: "Run python script"
