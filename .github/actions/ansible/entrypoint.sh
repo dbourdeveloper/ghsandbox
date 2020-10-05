@@ -48,7 +48,7 @@ fi
 export OPTIONS=
 if [ ! -z "$INPUT_OPTIONS" ]
 then
-    OPTIONS=""$(echo "${INPUT_OPTIONS}" | tr "\n" " ")""
+    OPTIONS="\"$(echo "${INPUT_OPTIONS}" | tr "\n" " ")\""
 fi
 
 cd ${WORKSPACE_DIR}
