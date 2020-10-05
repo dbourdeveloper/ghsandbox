@@ -1,6 +1,8 @@
 - hosts: all
   vars:
     username: "not specified"
+  roles:
+    - shout
   tasks:
     - name: "Install Python 3 Pip"
       delegate_to: 127.0.0.1
