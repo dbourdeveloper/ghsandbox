@@ -15,7 +15,8 @@
       connection: local
       become: yes
       package:
-        - "{{ python3pip }}"
+        name: "{{ python3pip }}"
+        state: present
 
     - name: "Pip install dependencies"
       delegate_to: 127.0.0.1
